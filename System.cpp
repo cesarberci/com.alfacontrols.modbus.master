@@ -2,7 +2,7 @@
 // Name        : System.cpp
 // Author      : Cesar Daltoe Berci
 // Version     :
-// Copyright   : TekSea 2019
+// Copyright   : Alfa Controls
 // Description : IEC 61850 Server
 //============================================================================
 
@@ -14,8 +14,8 @@
 #include <iostream>
 #include "version_num.h"
 /* MODBUS LIB */
-#include "modbus-rtu.h"
-#include <modbus.h>
+#include "modbus/modbus-rtu.h"
+#include <modbus/modbus.h>
 
 using namespace std;
 
@@ -72,10 +72,10 @@ int main(int argc, char*argv[]) {
 	}
 	timeout.tv_sec = 1;
 	timeout.tv_usec = 0;
-	modbus_set_response_timeout(ctx, &timeout);
+	modbus_set_response_timeout(ctx, timeout.tv_sec, timeout.tv_usec);
 	timeout.tv_sec = 0;
 	timeout.tv_usec = 50000;
-	modbus_set_byte_timeout(ctx, &timeout);
+	modbus_set_byte_timeout(ctx,  timeout.tv_sec, timeout.tv_usec);
 	/* END OF MODBUS CONFIGURATION */
 
 	rc = modbus_set_slave(ctx, addr);

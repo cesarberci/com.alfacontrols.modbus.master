@@ -141,7 +141,7 @@ const unsigned char info[] = {
 		"2019\n"
 		"\n"
 		"Usage:\n"
-		"# ModBus.Master.Simulator DEVICE SLAVE FUNCTION_CODE START #\n"
+		"# ModBus.Master.Simulator DEVICE SLAVE_ADDRESS SPEED FUNCTION_CODE START_REG N_BYTES\n"
 
 };
 
